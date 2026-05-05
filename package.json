@@ -1,7 +1,7 @@
 {
   "name": "@spawntap/react-native-sdk",
-  "version": "0.1.0",
-  "description": "Spawntap's playtime SDK",
+  "version": "0.1.1",
+  "description": "Spawntap's Offerwall SDK",
   "main": "./lib/module/index.js",
   "react-native": "./src/index.tsx",
   "types": "./lib/typescript/src/index.d.ts",
@@ -90,10 +90,6 @@
     "release-it": "^19.2.4",
     "turbo": "^2.8.21",
     "typescript": "^6.0.2"
-  },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
   },
   "workspaces": [
     "example"
