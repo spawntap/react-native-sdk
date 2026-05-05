@@ -2,7 +2,7 @@
 
 Spawntap's playtime SDK
 
-## 1. Add the SDK as a dependency
+### 1. Add the SDK as a dependency
 
 
 ```sh
@@ -10,7 +10,7 @@ npm install @spawntap/react-native-sdk
 ```
 
 
-## 2. Initialise the SDK
+### 2. Initialise the SDK
 
 
 ```js
@@ -32,7 +32,7 @@ SpawnTapSDK.init(
 );
 ```
 
-## 3. Open the Offerwall
+### 3. Open the Offerwall
 
 ```js
 SpawnTapSDK.open(
