@@ -1,21 +1,26 @@
 #import "ReactNativeSdk.h"
 
 @implementation ReactNativeSdk
-- (NSNumber *)multiply:(double)a b:(double)b {
-    NSNumber *result = @(a * b);
+RCT_EXPORT_MODULE(SpawnTapSDK)
 
-    return result;
+RCT_REMAP_METHOD(initializeSDK,
+                 initializeSDK:(NSDictionary *)config
+                 successCallback:(RCTResponseSenderBlock)successCallback
+                 failureCallback:(RCTResponseSenderBlock)failureCallback)
+{
+  failureCallback(@[@"SPAWNTAP_UNSUPPORTED_PLATFORM", @"SpawnTap is currently supported on Android only."]);
 }
 
-- (std::shared_ptr<facebook::react::TurboModule>)getTurboModule:
-    (const facebook::react::ObjCTurboModule::InitParams &)params
+RCT_REMAP_METHOD(open,
+                 openWithSuccessCallback:(RCTResponseSenderBlock)successCallback
+                 failureCallback:(RCTResponseSenderBlock)failureCallback)
 {
-    return std::make_shared<facebook::react::NativeReactNativeSdkSpecJSI>(params);
+  failureCallback(@[@"SPAWNTAP_UNSUPPORTED_PLATFORM", @"SpawnTap is currently supported on Android only."]);
 }
 
-+ (NSString *)moduleName
++ (BOOL)requiresMainQueueSetup
 {
-  return @"ReactNativeSdk";
+  return NO;
 }
 
 @end

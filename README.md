@@ -2,7 +2,7 @@
 
 Spawntap's playtime SDK
 
-## Installation
+## 1. Add the SDK as a dependency
 
 
 ```sh
@@ -10,28 +10,37 @@ npm install @spawntap/react-native-sdk
 ```
 
 
-## Usage
+## 2. Initialise the SDK
 
 
 ```js
-import { multiply } from '@spawntap/react-native-sdk';
+import SpawnTapSDK, { SpawnTapConfig } from '@spawntap/react-native-sdk';
 
-// ...
+const config = new SpawnTapConfig();
+config.setSdkKey('SDK_KEY');
+// Make sure to initialize again if the userId changes.
+config.setUserId('USER_ID');
 
-const result = multiply(3, 7);
+SpawnTapSDK.init(
+  config,
+  () => {
+    // SDK initialized successfully.
+  },
+  (code, message) => {
+    console.warn(code, message);
+  }
+);
 ```
 
+## 3. Open the Offerwall
 
-## Contributing
-
-- [Development workflow](CONTRIBUTING.md#development-workflow)
-- [Sending a pull request](CONTRIBUTING.md#sending-a-pull-request)
-- [Code of conduct](CODE_OF_CONDUCT.md)
-
-## License
-
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+```js
+SpawnTapSDK.open(
+  () => {
+    // Offerwall opened successfully.
+  },
+  (code, message) => {
+    console.warn(code, message);
+  }
+);
+```

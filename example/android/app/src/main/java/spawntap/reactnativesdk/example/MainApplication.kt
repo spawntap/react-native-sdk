@@ -1,6 +1,7 @@
 package spawntap.reactnativesdk.example
 
 import android.app.Application
+import android.preference.PreferenceManager
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactHost
@@ -22,6 +23,12 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
+    if (BuildConfig.DEBUG) {
+      PreferenceManager.getDefaultSharedPreferences(this)
+        .edit()
+        .putString("debug_http_host", "10.0.2.2:8081")
+        .apply()
+    }
     loadReactNative(this)
   }
 }

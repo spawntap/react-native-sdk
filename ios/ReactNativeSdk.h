@@ -1,5 +1,5 @@
-#import <ReactNativeSdkSpec/ReactNativeSdkSpec.h>
+#import <React/RCTBridgeModule.h>
 
-@interface ReactNativeSdk : NSObject <NativeReactNativeSdkSpec>
+@interface ReactNativeSdk : NSObject <RCTBridgeModule>
 
 @end

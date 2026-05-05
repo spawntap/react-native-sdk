@@ -3,7 +3,8 @@ buildscript {
     kotlinVersion: "2.0.21",
     minSdkVersion: 24,
     compileSdkVersion: 36,
-    targetSdkVersion: 36
+    targetSdkVersion: 36,
+    spawnTapAndroidSdkVersion: "1.0.0"
   ]
 
   ext.getExtOrDefault = { prop ->
@@ -29,8 +30,6 @@ buildscript {
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-
-apply plugin: "com.facebook.react"
 
 android {
   namespace "com.spawntap.reactnativesdk"
@@ -62,6 +61,19 @@ android {
   }
 }
 
+repositories {
+  google()
+  mavenCentral()
+  maven { url "https://jitpack.io" }
+}
+
 dependencies {
-  implementation "com.facebook.react:react-android"
+  compileOnly "com.facebook.react:react-android"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:${getExtOrDefault('kotlinVersion')}"
+
+  if (rootProject.findProject(":spawntap") != null) {
+    implementation project(":spawntap")
+  } else {
+    implementation "com.github.spawntap:android-sdk:${getExtOrDefault('spawnTapAndroidSdkVersion')}"
+  }
 }
