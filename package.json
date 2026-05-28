@@ -45,9 +45,10 @@
     "build:web": "vite build"
   },
   "keywords": [
-    "react-native",
-    "ios",
-    "android"
+    "spawntap",
+    "offerwall",
+    "sdk",
+    "playtime"
   ],
   "repository": {
     "type": "git",
