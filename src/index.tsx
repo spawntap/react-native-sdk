@@ -7,6 +7,7 @@ type SpawnTapCallback = (...args: any[]) => void;
 export class SpawnTapConfig {
   sdkKey = '';
   userId?: string;
+  notificationsEnabled = true;
 
   constructor(sdkKey?: string) {
     if (sdkKey) {
@@ -21,6 +22,10 @@ export class SpawnTapConfig {
   setUserId(userId: string) {
     this.userId = userId;
   }
+
+  enableNotifications(notificationsEnabled: boolean) {
+    this.notificationsEnabled = notificationsEnabled;
+  }
 }
 
 export const SpawnTapSDK = {
@@ -33,6 +38,7 @@ export const SpawnTapSDK = {
       {
         sdkKey: config.sdkKey,
         userId: config.userId ?? null,
+        notificationsEnabled: config.notificationsEnabled,
       },
       onSuccess,
       onFailure

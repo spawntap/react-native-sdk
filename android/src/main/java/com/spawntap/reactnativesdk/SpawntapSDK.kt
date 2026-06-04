@@ -34,6 +34,9 @@ class SpawnTapSDK(private val reactContext: ReactApplicationContext) :
         config.setUserId(userId)
       }
     }
+    if (initializeMap.hasKey("notificationsEnabled") && !initializeMap.isNull("notificationsEnabled")) {
+      config.enableNotifications(initializeMap.getBoolean("notificationsEnabled"))
+    }
 
     SpawnTap.init(reactContext, config, object : SpawnTapListener {
       override fun onSuccess() {

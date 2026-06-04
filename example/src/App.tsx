@@ -6,6 +6,7 @@ export default function App() {
     const config = new SpawnTapConfig();
     config.setSdkKey('SDK_KEY');
     config.setUserId('USER_ID');
+    config.enableNotifications(true);
 
     SpawnTapSDK.init(
       config,
