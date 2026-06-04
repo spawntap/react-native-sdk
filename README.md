@@ -21,7 +21,7 @@ config.setSdkKey('SDK_KEY');
 // Make sure to initialize again if the userId changes.
 config.setUserId('USER_ID');
 // Optional: reward notifications are enabled by default. Set false to disable them.
-config.enableNotifications(false);
+config.enableNotifications(true);
 
 SpawnTapSDK.init(
   config,
