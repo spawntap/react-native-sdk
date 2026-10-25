@@ -1,6 +1,6 @@
 {
   "name": "@spawntap/react-native-sdk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Spawntap's Offerwall SDK",
   "main": "./lib/module/index.js",
   "react-native": "./src/index.tsx",
